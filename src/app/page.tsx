@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import styles from './page.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Home() {
   const [number, setNumber] = useState<number>(0);
@@ -9,6 +9,7 @@ export default function Home() {
   const [random, setRandom] = useState<number>(0);
   const [chances, setChances] = useState<number>(10);
   const [restart, setRestart] = useState<string>('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const restartGame = () => {
     setNumber(0);
@@ -16,6 +17,12 @@ export default function Home() {
     setRandom(Math.floor(Math.random() * 100));
     setChances(10);
     setRestart('');
+  }
+
+  const clearInput = () => {
+    if(inputRef.current) {
+      inputRef.current.value = '';
+    }
   }
 
   const checkNumber = () => {
@@ -35,6 +42,7 @@ export default function Home() {
       setTimeout(restartGame, 5000);
       setRestart('Restarting...');
     }
+    clearInput();
   }
 
   useEffect(() => {
@@ -45,11 +53,11 @@ export default function Home() {
     <main className={styles.mainDiv}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <h4>Guess a nimber from 1 to 100</h4>
+          <h4>Guess a number from 1 to 100</h4>
           <p className={styles.result}>{result}</p>
         </div>
         <div className={styles.inputDiv}>
-          <input className={styles.inputNumber} type="number" onChange={(e) => {
+          <input ref={inputRef} className={styles.inputNumber} type="number" onChange={(e) => {
             setNumber(+e.target.value);
           }}/>
           <button className={styles.btnCheck} onClick={checkNumber}>Check</button>
