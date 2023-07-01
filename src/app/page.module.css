@@ -1,0 +1,52 @@
+.mainDiv {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f8fa;
+}
+
+.content {
+  height: 200px;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #d0d7de;
+  justify-content: space-around;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+
+.result {
+  height: 20px;
+}
+
+.inputDiv {
+  display: flex;
+  gap: 10px;
+}
+
+.inputNumber{ 
+  height: 30px;
+  outline: none;
+  text-align: center;
+  border: 1px solid #d0d7de;
+}
+
+.btnCheck {
+  width: 60px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #1a7be3;
+  color: #fff;
+}

@@ -39,17 +39,17 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main className={styles.mainDiv}>
       <div className={styles.content}>
         <div className={styles.header}>
           <h4>Guess a nimber from 1 to 100</h4>
           <p className={styles.result}>{result}</p>
         </div>
-        <div>
+        <div className={styles.inputDiv}>
           <input className={styles.inputNumber} type="number" onChange={(e) => {
             setNumber(+e.target.value);
           }}/>
-          <button onClick={checkNumber}>Check</button>
+          <button className={styles.btnCheck} onClick={checkNumber}>Check</button>
         </div>
         <p>{`You have ${chances} chances`}</p>
       </div>
