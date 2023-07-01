@@ -2,6 +2,8 @@
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 5px;
   justify-content: center;
   align-items: center;
   background-color: #f6f8fa;
@@ -49,4 +51,8 @@
   border-radius: 5px;
   background-color: #1a7be3;
   color: #fff;
+}
+
+.restartMsg {
+  height: 20px;
 }

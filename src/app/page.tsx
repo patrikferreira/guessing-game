@@ -8,12 +8,14 @@ export default function Home() {
   const [result, setResult] = useState<string>('');
   const [random, setRandom] = useState<number>(0);
   const [chances, setChances] = useState<number>(10);
+  const [restart, setRestart] = useState<string>('');
 
   const restartGame = () => {
     setNumber(0);
     setResult('');
     setRandom(Math.floor(Math.random() * 100));
     setChances(10);
+    setRestart('');
   }
 
   const checkNumber = () => {
@@ -30,7 +32,8 @@ export default function Home() {
     } else {
       setResult('Game Over!');
       setChances(chances -1);
-      setTimeout(restartGame, 5000)
+      setTimeout(restartGame, 5000);
+      setRestart('Restarting...');
     }
   }
 
@@ -53,6 +56,7 @@ export default function Home() {
         </div>
         <p>{`You have ${chances} chances`}</p>
       </div>
+      <p className={styles.restartMsg}>{restart}</p>
     </main>
   )
 }
